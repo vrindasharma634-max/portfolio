@@ -1,75 +1,496 @@
 <!DOCTYPE html>
-<head>
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body style="background-color: lightblue;">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vrinda sharma — Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Vrinda sharma — HTML, CSS, JS & Graphic Design"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fff0f6; /* pastel pink background */
+        --card: #ffe6f0; /* light blush cards */
+        --muted: #a855f7; /* lavender text */
+        --accent: #ff66b2; /* hot pink accent */
+        --glass: rgba(255, 255, 255, 0.5);
+        --glass-2: rgba(255, 255, 255, 0.4);
+        --success: #d946ef; /* pink-purple */
+        --danger: #fb7185; /* soft red/pink */
+        --max-width: 1100px;
+        --radius: 14px;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: linear-gradient(180deg, #fff0f6 0%, var(--bg) 100%);
+        color: #5b2245;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: var(--max-width);
+        margin: 36px auto;
+        padding: 24px;
+      }
 
-    <nav class="navbar">
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#user">User Details</a></li>
-  </ul>
-</nav>
+      /* Header */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .logo {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, var(--accent), #d946ef);
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        color: #fff;
+      }
+      .brand h1 {
+        margin: 0;
+        font-size: 18px;
+      }
+      nav {
+        display: flex;
+        gap: 12px;
+      }
+      nav a {
+        padding: 8px 12px;
+        border-radius: 10px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      nav a.active,
+      nav a:hover {
+        background: var(--accent);
+        color: #fff;
+      }
 
-  <header>
-    <img src="C:\Users\vrind\Downloads\portfolio.jpg" alt="My Profile Photo" class="profile-photo">
-    <h1>Vrinda Sharma</h1>
-    <p>Web Developer | Student | Coder</p>
-  </header>
+      /* Hero */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 28px;
+        margin-top: 28px;
+      }
+      .card {
+        background: linear-gradient(
+          180deg,
+          var(--card),
+          rgba(255, 200, 220, 0.6)
+        );
+        padding: 22px;
+        border-radius: var(--radius);
+        box-shadow: 0 6px 24px rgba(200, 50, 120, 0.2);
+      }
+      .intro h2 {
+        margin: 0 0 8px;
+        font-size: 26px;
+      }
+      .intro p {
+        margin: 0;
+        color: #8c3a67;
+        line-height: 1.5;
+      }
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>Hello! I am Vrinda, a passionate web developer learning HTML, CSS,AI TOOLS,JavaScript.</p>
-  </section>
+      .photo {
+        height: 280px;
+        border-radius: 12px;
+        background-image: linear-gradient(
+          135deg,
+          rgba(255, 102, 178, 0.1),
+          rgba(217, 70, 239, 0.1)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 999px;
+        background: linear-gradient(
+          180deg,
+          #fff 0%,
+          rgba(255, 255, 255, 0.7) 100%
+        );
+        display: grid;
+        place-items: center;
+        color: #ff66b2;
+        font-weight: 700;
+        font-size: 28px;
+        box-shadow: 0 8px 30px rgba(255, 102, 178, 0.2);
+      }
+      .cta {
+        margin-top: 18px;
+        display: flex;
+        gap: 10px;
+      }
+      .btn {
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-weight: 700;
+        cursor: pointer;
+        border: 0;
+      }
+      .btn-primary {
+        background: linear-gradient(90deg, var(--accent), #d946ef);
+        color: #fff;
+      }
+      .btn-ghost {
+        background: transparent;
+        border: 1px solid rgba(255, 102, 178, 0.5);
+        color: #ff66b2;
+      }
 
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>Python (Basic)</li>
-      <li>Problem Solving</li>
-    </ul>
-  </section>
+      /* Skills */
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .skill {
+        padding: 12px;
+        border-radius: 10px;
+        background: var(--glass-2);
+      }
+      .skill h4 {
+        margin: 0 0 8px;
+        color: #8c3a67;
+      }
+      .progress {
+        height: 10px;
+        background: rgba(255, 182, 193, 0.4);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .progress > i {
+        display: block;
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), #d946ef);
+      }
+      .skill small {
+        color: #a855f7;
+      }
 
-  <section class="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>Portfolio Website (This one!)</li>
-      <li>Calculator using HTML & JavaScript</li>
-      <li>Simple Blog Page</li>
-      <li>designs for webpages</li>
-    </ul>
-  </section>
+      /* Projects */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .project {
+        padding: 14px;
+        border-radius: 12px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.5),
+          transparent
+        );
+        border: 1px solid rgba(255, 102, 178, 0.2);
+      }
+      .project h5 {
+        margin: 0 0 6px;
+        color: #8c3a67;
+      }
+      .tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .tag {
+        font-size: 12px;
+        padding: 6px 8px;
+        border-radius: 999px;
+        background: #ffe6f0;
+        color: #ff66b2;
+      }
 
- <section class="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:vrindasharma634@gmail.com">vrindasharma634@gmail.com.com</a></p>
-  </section>
+      /* Contact */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 6px;
+        color: #a855f7;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ffb6c1;
+        background: transparent;
+        color: #5b2245;
+      }
+      textarea {
+        min-height: 120px;
+      }
+      footer {
+        margin-top: 28px;
+        text-align: center;
+        color: #a855f7;
+        font-size: 13px;
+      }
 
-  <section class="user-details">
-  <h2>Enter Your Details</h2>
-  <form action="#" method="post">
-    <label for="name">Name:</label><br />
-    <input type="text" id="name" name="name" required><br /><br />
+      /* Responsive */
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        nav {
+          display: none;
+        }
+      }
+      @media (max-width: 640px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .skills {
+          grid-template-columns: 1fr;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        .brand h1 {
+          display: none;
+        }
+      }
 
-    <label for="email">Email:</label><br />
-    <input type="email" id="email" name="email" required><br /><br />
-
-    <label for="message">Message:</label><br />
-    <textarea id="message" name="message" rows="4" required></textarea><br /><br />
-
-    <button type="submit">Submit</button>
-  </form>
-</section>
-
-
-  <footer>
-    <p>&copy;  Vrinda Sharma </p>
-  </footer>
-</body>
+      /* small utilities */
+      .muted {
+        color: #a855f7;
+      }
+      .center {
+        display: grid;
+        place-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- keep the same body content you had -->
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <div class="logo">vs</div>
+          <div>
+            <h1>Vrinda sharma</h1>
+            <div class="muted" style="font-size: 13px">
+              HTML • CSS • JavaScript • Graphic Design
+            </div>
+          </div>
+        </div>
+        <nav>
+          <a class="active" href="#about">About</a>
+          <a href="#skills">Skills</a> <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+      <section class="hero">
+        <div class="card intro">
+          <h2>Hello — I'm Vrinda</h2>
+          <p>
+            I'm a front-end enthusiast and graphic designer who builds clean,
+            accessible interfaces and eye-catching visuals. I enjoy turning
+            ideas into polished web experiences using HTML, CSS and JavaScript.
+          </p>
+          <div class="skills" id="skills">
+            <div class="skill">
+              <h4>HTML</h4>
+              <div class="progress" aria-label="HTML skill">
+                <i style="width: 92%"></i>
+              </div>
+              <small class="muted"
+                >Semantic markup, accessibility, SEO-friendly structure</small
+              >
+            </div>
+            <div class="skill">
+              <h4>CSS</h4>
+              <div class="progress" aria-label="CSS skill">
+                <i style="width: 88%"></i>
+              </div>
+              <small class="muted"
+                >Responsive layouts, Flexbox, Grid, animations</small
+              >
+            </div>
+            <div class="skill">
+              <h4>JavaScript</h4>
+              <div class="progress" aria-label="JS skill">
+                <i style="width: 78%"></i>
+              </div>
+              <small class="muted"
+                >DOM, ES6+, fetch, small UI interactions</small
+              >
+            </div>
+            <div class="skill">
+              <h4>Graphic Design</h4>
+              <div class="progress" aria-label="Graphic design skill">
+                <i style="width: 86%"></i>
+              </div>
+              <small class="muted"
+                >Branding, posters, merchandise, Adobe/Canva workflows</small
+              >
+            </div>
+          </div>
+          
+        </div>
+        <aside class="card photo center">
+          <div class="avatar">VS</div>
+          <h3 style="margin: 12px 0 4px">Front-end & Designer</h3>
+          <div class="muted">
+            Currently available for freelance & internships
+          </div>
+          <div style="margin-top: 12px; font-size: 13px; color: var(--muted)">
+            Based in Delhi • Open to remote
+          </div>
+        </aside>
+      </section>
+      <section id="projects">
+        <h3 style="margin-top: 28px">Selected Projects</h3>
+        <div class="projects-grid">
+          <article class="project">
+            <h5>Portfolio Landing</h5>
+            <div class="muted">
+              A minimal responsive landing page with animations
+            </div>
+            <div class="tags">
+              <span class="tag">HTML</span><span class="tag">CSS</span
+              ><span class="tag">JS</span>
+            </div>
+          </article>
+          <article class="project">
+            <h5>Poster Series — Fest</h5>
+            <div class="muted">
+              A graphic-design set for college fest posters and banners
+            </div>
+            <div class="tags">
+              <span class="tag">Canva</span><span class="tag">Illustrator</span>
+            </div>
+          </article>
+          <article class="project">
+            <h5>Interactive Quiz</h5>
+            <div class="muted">
+              Vanilla JS quiz app with localStorage score tracking
+            </div>
+            <div class="tags">
+              <span class="tag">JavaScript</span><span class="tag">UI</span>
+            </div>
+          </article>
+          <article class="project">
+            <h5>Merch Mockups</h5>
+            <div class="muted">
+              Custom hoodie and sweatshirt designs ready for print
+            </div>
+            <div class="tags">
+              <span class="tag">Graphic Design</span
+              ><span class="tag">Print-ready</span>
+            </div>
+          </article>
+          <article class="project">
+            <h5>Responsive Blog</h5>
+            <div class="muted">
+              A CSS-first responsive blog template optimized for readability
+            </div>
+            <div class="tags">
+              <span class="tag">HTML</span><span class="tag">CSS</span>
+            </div>
+          </article>
+          <article class="project">
+            <h5>Animated Buttons Pack</h5>
+            <div class="muted">
+              Micro-interactions library for buttons, ready to drop into
+              projects
+            </div>
+            <div class="tags">
+              <span class="tag">CSS</span><span class="tag">Micro UI</span>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="contact">
+        <h3 style="margin-top: 28px">Contact</h3>
+        <div class="card contact-grid">
+          <div>
+            <p class="muted">
+              Interested in hiring or collaborating? Send a message — I usually
+              reply within a day.
+            </p>
+            <p style="margin: 12px 0">
+              <strong>Email:</strong>
+              <a href="mailto:hello@yourdomain.com">vrindasharma634@gmail.com</a>
+            </p>
+            <p>
+              <strong>Social:</strong> <a href="https://www.instagram.com/vrinda_.sharma?igsh=eDR1Zm4xdDYxcnZq&utm_source=qr">Instagram</a> •
+              <a href="https://www.linkedin.com/in/vrinda-sharma-85093927a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">LinkedIn</a>
+            </p>
+          </div>
+          <form id="contactForm" onsubmit="handleContact(event)">
+            <label for="name">Name</label>
+            <input id="name" required placeholder="Your name" />
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              required
+              placeholder="you@example.com"
+            />
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              required
+              placeholder="Tell me about your project"
+            ></textarea>
+            <div style="margin-top: 8px; text-align: right">
+              <button class="btn btn-primary" type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <footer>
+        <div class="muted">
+          Made with ❤ — Vrinda sharma • © <span id="year"></span>
+        </div>
+      </footer>
+    </div>
+    <script>
+      // small interactions document.getElementById('year').textContent = new Date().getFullYear(); function scrollToSection(id){ const el = document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); } // fake resume download (replace URL with actual file path) document.getElementById('downloadResume').addEventListener('click', function(){ const link = document.createElement('a'); link.href = 'resume.pdf'; // change to real file link.download = 'Deeveja_Wadhwa_Resume.pdf'; document.body.appendChild(link); link.click(); link.remove(); }); function handleContact(e){ e.preventDefault(); const name = document.getElementById('name').value.trim(); const email = document.getElementById('email').value.trim(); const message = document.getElementById('message').value.trim(); if(!name || !email || !message){ alert('Please fill all fields'); return; } // In production, submit to your server or an email API. Here we just show a success message. alert('Thanks ' + name + '! Your message was sent — (demo).'); document.getElementById('contactForm').reset(); }
+    </script>
+    ...
+  </body>
 </html>
